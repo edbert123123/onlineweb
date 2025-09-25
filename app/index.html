@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BelanjaKu | Tempat Jual Beli Barang Murah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body class="bg-gray-100">
+ <header class="bg-blue-500 text-white h-auto md:h-20 flex flex-wrap items-center justify-between px-4 md:px-6 py-3 md:py-0 shadow-md">
+    <h1 class="font-bold text-2xl md:text-3xl">BelanjaKu</h1>
+    <input type="search" id="search" class="bg-white w-full md:w-80 h-10 rounded-full text-black px-4 font-medium focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-500 mt-2 md:mt-0" placeholder="Cari Barang Di Sini..." onkeydown="if(event.key === 'Enter'){search()}">
+    <nav class="w-full md:w-auto mt-3 md:mt-0">
+      <ul class="flex flex-wrap gap-4 md:gap-6 font-semibold justify-center md:justify-end">
+        <li><a href="/app/index.html" class="hover:underline">Home</a></li>
+        <li><a href="/app/berjualan/berjualan.html" class="hover:underline">Mulai Berjualan</a></li>
+        <li><a href="/app/customer_service/contact.html" class="hover:underline">Customer Service</a></li>
+        <li><a href="/app/pengaturan/setting.html" class="hover:underline">Pengaturan</a></li>
+      </ul>
+    </nav>
+  </header>  
+
+  <div class="flex flex-wrap gap-4 items-center mt-4 ml-4 font-bold">
+    <button class="bg-blue-500 px-4 py-2 rounded-xl text-white shadow-md hover:scale-105 duration-300" onclick="hal('/app/login/login.html')">Login</button>
+    <button class="bg-cyan-500 px-4 py-2 rounded-xl text-white shadow-md hover:scale-105 duration-300" onclick="hal('/app/register/register.html')">Register</button>
+    <img src="https://i.pinimg.com/736x/79/a9/b0/79a9b0f84b35e0290305e498e53ba5e5.jpg" alt="cart" class="w-12 md:w-16 rounded-xl shadow-md hover:scale-110 duration-300 cursor-pointer">
+  </div>
+
+  <div class="flex justify-center mt-6 px-4">
+    <img src="https://images.tokopedia.net/img/cache/1208/NsjrJu/2025/9/2/63a617ae-5375-418d-a2a5-b87d6be1439f.jpg" alt="banner" class="w-full max-w-5xl h-40 md:h-60 lg:h-64 object-cover border-2 rounded-2xl shadow-lg">
+  </div>
+
+  <section class="shadow-2xl bg-white mt-6 w-full max-w-6xl mx-auto rounded-2xl p-6 font-bold">
+    <h1 class="text-2xl mb-2">Kategori Pilihan</h1>
+    <p class="text-gray-500 mb-6">Barang Populer Sedang Tidak Ada</p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div>
+        <h3 class="text-xl mb-3">Top Up dan Tagihan</h3>
+        <div class="flex gap-3 flex-wrap">
+          <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl shadow-md transition hover:scale-105" onclick="pilih('pulsa')">Pulsa</button>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl shadow-md transition hover:scale-105" onclick="pilih('paket')">Paket Data</button>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl shadow-md transition hover:scale-105" onclick="pilih('listrik')">Listrik</button>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-end gap-4">
+        <h1 id="hasil" class="text-lg font-semibold"></h1> 
+        <input type="text" id="tlp" class="border-2 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 w-full sm:w-60 h-12 px-4 rounded-xl outline-none" placeholder="Masukkan Nomor Telepon" required>
+        <input type="text" id="nominal" class="border-2 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 w-full sm:w-60 h-12 px-4 rounded-xl outline-none" placeholder="Masukkan Nominal" required>
+        <button id="btn" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-2xl shadow-md transition hover:scale-110" onclick="beli()">Beli</button>
+      </div>
+    </div>
+  </section>
+ <h1 class="mt-6 font-bold text-xl ml-2">Yang Mungkin Anda Suka</h1>
+<div class="flex flex-wrap gap-6 justify-center md:justify-start px-4">
+  <div class="bg-white w-full sm:w-60 rounded-2xl shadow-md border border-gray-300 overflow-hidden">
+    <img src="https://dynamic.zacdn.com/r3HNXUooKEAUH7tHWvtCoGDYYx8=/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/nade-4424-4113003-4.jpg" alt="Kaos Hitam" class="h-40 w-full object-cover">
+    <div class="p-3">
+      <h2 class="font-semibold text-gray-800 text-sm">Kaos Hitam Murah Bahan Enak</h2>
+      <p class="text-blue-600 font-bold mt-1">Rp99.000,00</p>
+      <div class="flex gap-2 mt-3">
+        <button class="flex-1 bg-blue-500 text-white py-1 rounded-lg hover:bg-blue-600"  onclick="hal('/app/beli/buy.html')">Beli</button>
+        <button class="flex-1 bg-gray-200 text-gray-800 py-1 rounded-lg hover:bg-gray-300">Keranjang</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white w-full sm:w-60 rounded-2xl shadow-md border border-gray-300 overflow-hidden">
+    <img src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2023/10/21/d7a120e6-ffaa-4abd-81cb-6562f2634976.jpg" alt="iPhone 15" class="h-40 w-full object-cover">
+    <div class="p-3">
+      <h2 class="font-semibold text-gray-800 text-sm">IPHONE 15 128 GB | 256 GB</h2>
+      <p class="text-blue-600 font-bold mt-1">Rp10.900.000</p>
+      <div class="flex gap-2 mt-3">
+        <button class="flex-1 bg-blue-500 text-white py-1 rounded-lg hover:bg-blue-600" onclick="hal('/app/beli/buy1.html')">Beli</button>
+        <button class="flex-1 bg-gray-200 text-gray-800 py-1 rounded-lg hover:bg-gray-300">Keranjang</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white w-full sm:w-60 rounded-2xl shadow-md border border-gray-300 overflow-hidden">
+    <img src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2023/1/24/50f6012e-ab00-4ecc-9689-96b151c4ef30.jpg" alt="Nike Dunk" class="h-40 w-full object-cover">
+    <div class="p-3">
+      <h2 class="font-semibold text-gray-800 text-sm">Nike Dunk Low Panda Black</h2>
+      <p class="text-blue-600 font-bold mt-1">Rp1.499.000</p>
+      <div class="flex gap-2 mt-3">
+        <button class="flex-1 bg-blue-500 text-white py-1 rounded-lg hover:bg-blue-600" onclick="hal('/app/beli/buy2.html')">Beli</button>
+        <button class="flex-1 bg-gray-200 text-gray-800 py-1 rounded-lg hover:bg-gray-300">Keranjang</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white w-full sm:w-60 rounded-2xl shadow-md border border-gray-300 overflow-hidden">
+    <img src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2024/4/6/e24425f3-0ef8-473b-b6f8-4c4ccf2c32b1.jpg" alt="Tempat Tidur" class="h-40 w-full object-cover">
+    <div class="p-3">
+      <h2 class="font-semibold text-gray-800 text-sm">POEL - Platform Bed / Tempat Tidur</h2>
+      <p class="text-blue-600 font-bold mt-1">Rp1.800.000</p>
+      <div class="flex gap-2 mt-3">
+        <button class="flex-1 bg-blue-500 text-white py-1 rounded-lg hover:bg-blue-600" onclick="hal('/app/beli/buy3.html')">Beli</button>
+        <button class="flex-1 bg-gray-200 text-gray-800 py-1 rounded-lg hover:bg-gray-300">Keranjang</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white w-full sm:w-60 rounded-2xl shadow-md border border-gray-300 overflow-hidden">
+    <img src="https://images.tokopedia.net/img/cache/250-square/aphluv/1997/1/1/75ae72ca46784df3b56a67b1d268b2f8~.jpeg" alt="iPhone 16 Pro Max" class="h-40 w-full object-cover">
+    <div class="p-3">
+      <h2 class="font-semibold text-gray-800 text-sm">(RESMI) iPhone 16 Pro Max</h2>
+      <p class="text-blue-600 font-bold mt-1">Rp20.999.000</p>
+      <div class="flex gap-2 mt-3">
+        <button class="flex-1 bg-blue-500 text-white py-1 rounded-lg hover:bg-blue-600" onclick="hal('/app/beli/buy4.html')">Beli</button>
+        <button class="flex-1 bg-gray-200 text-gray-800 py-1 rounded-lg hover:bg-gray-300">Keranjang</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white w-full sm:w-60 rounded-2xl shadow-md border border-gray-300 overflow-hidden">
+    <img src="https://images.tokopedia.net/img/cache/250-square/aphluv/1997/1/1/53a40467e72f42fe8dcbd7ebdd653f1e~.jpeg" alt="PC Gaming" class="h-40 w-full object-cover">
+    <div class="p-3">
+      <h2 class="font-semibold text-gray-800 text-sm">PC Gaming Core i5 12400F RTX5070</h2>
+      <p class="text-blue-600 font-bold mt-1">Rp5.695.000</p>
+      <div class="flex gap-2 mt-3">
+        <button class="flex-1 bg-blue-500 text-white py-1 rounded-lg hover:bg-blue-600" onclick="hal('/app/beli/buy5.html')">Beli</button>
+        <button class="flex-1 bg-gray-200 text-gray-800 py-1 rounded-lg hover:bg-gray-300">Keranjang</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1 class="font-bold text-[1.2rem] md:text-[1.5rem] mt-10 ml-5 text-gray-500 duration-300 hover:scale-110">Seterusnya Bisa Mencari Di Pencarian</h1>
+
+  <footer class="bg-gray-800 text-gray-300 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h2 class="text-xl font-bold text-white">BelanjaKu</h2>
+          <p class="mt-2 text-sm text-gray-400">Tempat jual beli barang murah dan berkualitas.</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-white uppercase tracking-wider">Menu</h3>
+          <ul class="mt-4 space-y-2">
+            <li><a href="" class="hover:text-white">Beranda</a></li>
+            <li><a href="" class="hover:text-white">Mulai Berjualan</a></li>
+            <li><a href="" class="hover:text-white">Customer Service</a></li>
+            <li><a href="" class="hover:text-white">Pengaturan</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-white uppercase tracking-wider">Ikuti Kami</h3>
+          <div class="mt-4 flex space-x-4 text-xl">
+            <i class="fa-brands fa-google cursor-pointer hover:scale-125 hover:text-red-500 duration-300"></i>
+            <i class="fa-brands fa-facebook cursor-pointer hover:scale-125 hover:text-blue-600 duration-300"></i>
+            <i class="fa-brands fa-x-twitter cursor-pointer hover:scale-125 hover:text-black duration-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
